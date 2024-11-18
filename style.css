@@ -1,0 +1,298 @@
+/* Estilos básicos e globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-image: linear-gradient(to bottom, #d1d1d1, #f5f5f5); /* Gradiente prateado */
+  padding: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h1 {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.week-info {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.instructions {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.step {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0 auto 10px auto;
+}
+
+.step p {
+  font-size: 14px;
+  color: #333;
+  padding: 0 10px;
+}
+
+.add-service {
+  background-color: #fdf1ba;
+  border: 1px dashed #aaa;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin: 15px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+/* Kanban Board */
+.kanban-board {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+/* Colunas do Kanban */
+.kanban-column {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+.column-inspection .column-header {
+  background-color: #b3d9ff;
+}
+
+.column-maintenance .column-header {
+  background-color: #fff4b3;
+}
+
+.column-ok .column-header {
+  background-color: #c6f7e2;
+}
+
+.column-number {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.column-title {
+  flex: 1;
+  text-align: center;
+}
+
+.column-icon {
+  font-size: 18px;
+}
+
+/* Cartões de Tarefa */
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-card {
+  background-color: #fdf1ba;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Modal de Tarefa */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fdf1ba;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.modal label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.modal input, .modal textarea, .modal select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Botões do Modal */
+.delete-btn, .save-btn, .clear-btn, .exit-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #ff5c5c; /* Cor de fundo vermelho */
+  color: white;
+  border: none;
+}
+
+.save-btn {
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: white;
+  border: none;
+}
+
+.clear-btn {
+  background-color: #f2a900; /* Cor de fundo laranja para distinguir do botão "Salvar" */
+  color: white;
+  border: none;
+}
+
+.clear-btn:hover {
+  background-color: #d98f00; /* Cor de fundo laranja mais escuro no hover */
+}
+
+.exit-btn {
+  background-color: #ff6666; /* Cor de fundo vermelho */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.exit-btn:hover {
+  background-color: #ff4d4d; /* Cor de fundo vermelho escuro no hover */
+}
+
+.close-btn {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+/* Efeito de hover no botão Salvar */
+.save-btn:hover {
+  background-color: #45a049; /* Cor de fundo verde mais escuro no hover */
+}
+/* Botão Editar */
+.edit-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4b8c8c; /* Cor de fundo azul esverdeado para edição */
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+/* Efeito de hover no botão Editar */
+.edit-btn:hover {
+  background-color: #3e7272; /* Cor de fundo mais escuro no hover */
+}
+
+/* Ajuste visual para quando o botão Editar for clicado (opcional) */
+.edit-btn:active {
+  background-color: #2e5656; /* Cor de fundo mais intensa para o estado ativo */
+}
+
+.task-card {
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-right: 10px solid transparent; /* Default */
+}
